@@ -2,6 +2,7 @@ import javax.xml.crypto.Data;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.SocketException;
 
 public class servidor {
@@ -19,8 +20,9 @@ public class servidor {
             DatagramPacket paqueteEntrada = new DatagramPacket(bufferEntrada,bufferEntrada.length);
 
             socket.receive(paqueteEntrada);
+
+            
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
     }
