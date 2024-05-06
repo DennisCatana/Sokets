@@ -4,7 +4,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 
-public class Hilocliente {
+public class Hilocliente extends Thread {
 
     private DatagramSocket socket;
     private DatagramPacket paqueteEntrada;

@@ -15,13 +15,22 @@ public class servidor {
             DatagramSocket socket = new DatagramSocket(puerto);
             System.out.println("Servidor esperando conexiones...");
 
-            byte[] bufferEntrada = new byte[1024];
+            while(true){
 
-            DatagramPacket paqueteEntrada = new DatagramPacket(bufferEntrada,bufferEntrada.length);
+                byte[] bufferEntrada = new byte[1024];
+                DatagramPacket paqueteEntrada = new DatagramPacket(bufferEntrada,bufferEntrada.length);
 
-            socket.receive(paqueteEntrada);
+                socket.receive(paqueteEntrada);
+                
+                /*------------------------------------------------------------------ */
 
-            
+                //Iniciar un hilo para cada cliente 
+
+                Thread Hilocliente = new Hilocliente(socket, paqueteEntrada);
+                Hilocliente.start();
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
